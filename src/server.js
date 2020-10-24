@@ -3,14 +3,6 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const helmet = require("helmet");
-// const { Client } = require('pg')
-// const client = new Client({
-//   user: 'dunder_mifflin',
-//   host: 'localhost',
-//   database: 'fooddonation',
-//   password: '12345',
-//   port: 3211,
-// })
 const { Client } = require("pg");
 
 const client = new Client({
@@ -21,8 +13,6 @@ const client = new Client({
 });
 
 const app = express();
-
-// const morganOption = (process.env.NODE_ENV === 'production')
 const morganOption = process.env.NODE_ENV === "production" ? "tiny" : "common";
 
 app.use(morgan(morganOption));
